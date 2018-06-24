@@ -13,8 +13,8 @@ RSS_FEEDS = {
 def get_news(publication="bbc"):
     feed_link = RSS_FEEDS[publication]
     feed = feedparser.parse(feed_link)
-    first_article = feed['entries'][0]
-    return render_template("home.html",title=first_article.get("title"),publication=publication.upper(),published=first_article.get("published"),summary=first_article.get("summary"))
+#    first_article = feed['entries'][0]
+    return render_template("home.html",publication=publication,articles=feed['entries'])
 #    return """<html>
 #               <body>
 #                  <h1> {0} Headlines </h1>
